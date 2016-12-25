@@ -1,0 +1,65 @@
+﻿      
+ #editAuthorForm {
+   visibility:hidden;            
+ }
+ #addAuthorContainer {
+   float:left;            
+ } 
+ #booksDiv {
+   visibility:hidden;
+   position:absolute;
+ }
+ #booksForm{
+   visibility:hidden;
+   position:absolute;
+ }
+ #listText{
+   font-size:16px;     
+ }
+ #currentAuthor{
+   font-size:19px;
+   font-weight:bold;
+ }
+ #editBookForm {
+   visibility:hidden;            
+ }   
+ #addAuthorForm{
+   visibility:hidden;  
+ }
+ #addBookForm{
+   visibility:hidden;  
+ }
+ #searchResult
+ {
+   visibility:hidden;
+   position:absolute;     
+ }
+ .searchInput{
+   border:0px;
+   background-color:white;
+   color:black;
+   width:100%; 
+   font-size:16px;         
+ } 
+ #mainDiv{
+   margin-top:15px;
+ }
+ #resultForm{
+   border:1px solid #9a5ad1;
+   padding:5px;
+   margin-top:10px;
+   border-radius:10px;
+ }
+ #searchField{
+   float:left;
+   width:40%;
+ }
+ #error{
+   color:red;
+   font-size:16px;
+   border:0px;   
+   background-color:white;
+ }
+
+
+ 

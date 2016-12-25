@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Authors List</title>
+    <meta charset="utf-8" />        
+    <link rel="stylesheet" href="css/Style.css" />
+    <link href="../lib/Bootstrap/styles/bootstrap.min.css" rel="stylesheet" />   
+    <link rel="stylesheet" href="../lib/jquery-ui-1.10.3/themes/base/jquery.ui.all.css">
+    <script src="../lib/jquery-3.1.1.js"></script>
+    <script src="../lib/jquery-ui-1.10.3/jquery-1.9.1.js"></script>
+    <script src="../lib/jquery-ui-1.10.3/ui/jquery.ui.core.js"></script>
+    <script src="../lib/jquery-ui-1.10.3/ui/jquery.ui.widget.js"></script>    
+    <script src="../lib/jquery-ui-1.10.3/ui/jquery.ui.datepicker.js"></script>
+    <script src="../dist/js/main.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+        <div class="col-lg-12" id="searchDiv">
+            <div id="searchInfo" class="col-lg-12">
+                <form id="prov" class="col-lg-8">
+                    <h4>Поиск по названию книги</h4>
+                    <input type="text" placeholder="Введите название книги" class="form-control" id="searchField" />
+                    <input type="button" value="Поиск" id="search" class="btn" />
+                    <input type="text" id="error" disabled="disabled" />
+                </form>
+            </div>
+            <div id="searchResult" class="col-lg-12">
+                <form id="resultForm" class="form-horizontal col-lg-4">
+                    <div class="form-group row">
+                        <label for="searchAuthor" class="col-lg-4 control-label">Автор</label>
+                        <div class="col-lg-8">
+                            <input type="text" id="searchAuthor" class="searchInput" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="searchName" class="col-lg-4 control-label">Название книги</label>
+                        <div class="col-lg-8">
+                            <input type="text" id="searchName" class="searchInput" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="searchGenre" class="col-lg-4 control-label">Жанр</label>
+                        <div class="col-lg-8">
+                            <input type="text" id="searchGenre" class="searchInput" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="searchAmount" class="col-lg-4 control-label">Количество страниц</label>
+                        <div class="col-lg-8">
+                            <input type="text" id="searchAmount" class="searchInput" />
+                        </div>
+                    </div><br />
+                    <input type="button" value="Закрыть" id="closeSearch" class="btn btn-warning" />
+                </form><br />
+            </div>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12" id="mainDiv">
+                <div class="col-lg-12">
+                    <div class="col-lg-8" id="authorsDiv">
+                        <table class="table" id="authorsInfo">
+                            <thead>
+                                <tr>
+                                    <th>Имя</th>
+                                    <th>Отчество</th>
+                                    <th>Фамилия</th>
+                                    <th>Дата рождения</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                        </table>
+                        <input type="button" id="showAddAuthor" class="btn btn-primary" value="Добавить автора" />
+                    </div>
+                    <div id="booksDiv" class="col-lg-8">
+                        <br />
+                        <input type="button" class="btn btn-warning" value="Список авторов" id="showAuthor" /><br /><br />
+                        <p id="listText">Список книг автора: <span id="currentAuthor"></span></p><br />
+                        <table class="table" id="booksInfo">
+                            <thead>
+                                <tr>
+                                    <th>Название книги</th>
+                                    <th>Жанр</th>
+                                    <th>Количество страниц</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                        </table>
+                        <input type="button" id="showAddBook" class="btn btn-primary" value="Добавить книгу" />
+                    </div>
+                </div>
+                <div class="col-lg-12" id="authorsForm">
+                    <div id="addAuthorContainer" class="col-lg-6">
+                        <form id="addAuthorForm" class="form-horizontal">
+                            <h4>Введите данные нового автора</h4>
+                            <br />
+                            <div class="form-group row">
+                                <label for="newFirstName" class="col-lg-2 control-label">Имя</label>
+                                <div class="col-lg-6">
+                                    <input type="text" id="newFirstName" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="newMidleName" class="col-lg-2 control-label">Отчество</label>
+                                <div class="col-lg-6">
+                                    <input type="text" id="newMidleName" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="newSecondName" class="col-lg-2 control-label">Фамилия</label>
+                                <div class="col-lg-6">
+                                    <input type="text" id="newSecondName" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="newBirthDate" class="col-lg-2 control-label">Дата рождения</label>
+                                <div class="col-lg-6">
+                                    <input type="text" id="newBirthDate" class="form-control" />
+                                </div>
+                            </div><br />
+                            <input type="button" class="btn btn btn-primary" value="Добавить автора" id="addAuthorBtn" />
+                            <input type="button" class="btn btn btn-primary" value="Закрыть" id="addAuthorClose" />
+                        </form><br />
+                    </div>
+                    <div id="editContainer" class="col-lg-6">
+                        <form id="editAuthorForm" class="form-horizontal">
+                            <h4>Редактирование данных автора</h4>
+                            <br />
+                            <div class="form-group row">
+                                <label for="addFirstName" class="col-lg-2 control-label">Имя</label>
+                                <div class="col-lg-6">
+                                    <input type="text" id="addFirstName" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="addMidleName" class="col-lg-2 control-label">Отчество</label>
+                                <div class="col-lg-6">
+                                    <input type="text" id="addMidleName" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="addSecondName" class="col-lg-2 control-label">Фамилия</label>
+                                <div class="col-lg-6">
+                                    <input type="text" id="addSecondName" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="addBirthDate" class="col-lg-2 control-label">Дата рождения</label>
+                                <div class="col-lg-6">
+                                    <input type="text" id="addBirthDate" class="form-control" />
+                                </div>
+                            </div><br />
+                            <input type="button" value="Применить" id="edit" class="btn btn btn-primary" />
+                            <input type="button" value="Закрыть" id="close" class="btn btn btn-primary" />
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-12" id="booksForm">
+                    <div id="addBookContainer" class="col-lg-6">
+                        <form id="addBookForm" class="form-horizontal">
+                            <h4>Введите данные новой книги</h4>
+                            <br />
+                            <div class="form-group row">
+                                <label for="newBookName" class="col-lg-2 control-label">Название</label>
+                                <div class="col-lg-6">
+                                    <input type="text" id="newBookName" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="newBookGenre" class="col-lg-2 control-label">Жанр</label>
+                                <div class="col-lg-6">
+                                    <input type="text" id="newBookGenre" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="newPageAmount" class="col-lg-2 control-label">Количество страниц</label>
+                                <div class="col-lg-6">
+                                    <input type="number" id="newPageAmount" class="form-control" />
+                                </div>
+                            </div><br />
+                            <input type="button" class="btn btn btn-primary" value="Добавить книгу" id="addBookBtn" />
+                            <input type="button" class="btn btn btn-primary" value="Закрыть" id="addBookClose" />
+                        </form>
+                    </div>
+                    <div id="editBookContainer" class="col-lg-6">
+                        <form id="editBookForm" class="form-horizontal">
+                            <h4>Редактирование информации про книгу</h4>
+                            <br />
+                            <div class="form-group row">
+                                <label for="addBookName" class="col-lg-2 control-label">Название</label>
+                                <div class="col-lg-6">
+                                    <input type="text" id="addBookName" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="addBookGenre" class="col-lg-2 control-label">Жанр</label>
+                                <div class="col-lg-6">
+                                    <input type="text" id="addBookGenre" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="addPageAmount" class="col-lg-2 control-label">Количество страниц</label>
+                                <div class="col-lg-6">
+                                    <input type="number" id="addPageAmount" class="form-control" />
+                                </div>
+                            </div><br />
+                            <input type="button" value="Применить" id="editBookBtn" class="btn btn btn-primary" />
+                            <input type="button" value="Закрыть" id="closeBookBtn" class="btn btn btn-primary" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
